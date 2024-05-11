@@ -1,0 +1,21 @@
+
+    Math Game Console Application
+
+    => Requirements
+      1) Present with a menu to choose an operation
+      
+      2) Read Operands and 4 operations from the user input
+
+      3) The divisions should result on INTEGERS ONLY and dividends should go from 0 to 100
+
+      4) Record previous games in a List
+      
+      5) There should be an option in the menu for the user to visualize a history of previous games.
+
+    => Planning
+
+      3) Divisions will be tested with modulus '%' to avoid float result.
+
+      4) Making class Math Operations with operands, operations and result attributes
+
+      5) Making an option in the menu for the user to visualize a history of previous games.
