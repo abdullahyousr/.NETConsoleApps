@@ -4,11 +4,50 @@ namespace MathGame;
 
 internal class AppMenu
 {
+
+    //OperationOption
+
+    //If OperationOption == E Exit App
+
+    //DifficultyOption
+
+    //If DifficultyOption == E Exit App
+
+    //ValidateOptions
+
+    //
+
     internal MathOperations mathOperations = new MathOperations();
     internal Game.GameDifficulty gameDifficulty = new();
-    internal static bool IsGameOn = true;
+    internal string OperationOption {get; set;}
+    internal string DifficultyOption {get; set;}
+    internal bool GameOn = true;
 
-    internal void GameMenu()
+
+    internal void OperationApp()
+    {
+         do{
+            OperationMenu();
+            if(!IsGameOn())
+            {
+                ExitApp();
+                break;
+            }
+            }while(IsGameOn());
+    }
+
+    internal void DifficultyApp()
+    {
+         do{
+            DifficultyMenu();
+            if(!IsGameOn())
+            {
+                break;
+            }
+            }while(IsGameOn());
+    }
+
+    internal void OperationMenu()
     {
         Console.Clear();
         Console.WriteLine("--------------------------------------------");
@@ -21,43 +60,8 @@ internal class AppMenu
                             Q - Exit
         ");
 
-        string option = Console.ReadLine().Trim().ToUpper();
-        SelectOption(option);
-    }
-    internal void SelectOption(string option)
-    {
-        DifficultyMenu();
-
-        Console.Clear();
-        Console.WriteLine("--------------------------------------------");
-        
-        switch(option)
-        {
-            case "V": mathOperations.gameHistory.ViewGameHistory();
-            break;
-            case "A":
-            mathOperations.DoMathOperation(Game.GameType.Addition, gameDifficulty, '+');
-            break;
-            case "S":
-            mathOperations.DoMathOperation(Game.GameType.Subtraction, gameDifficulty, '-');
-            break;
-            case "M":
-            mathOperations.DoMathOperation(Game.GameType.Multiplication, gameDifficulty, '*');
-            break;
-            case "D":
-            mathOperations.DoMathOperation(Game.GameType.Division, gameDifficulty, '/');
-            break;
-            case "Q":
-            Console.WriteLine("You have chosen to exit the application");
-            Console.WriteLine("Good Bye!");
-            Console.ReadLine();
-            IsGameOn = false;
-            break;
-            default:
-            Console.WriteLine("Invalid option selected");
-            Console.ReadLine();
-            break;
-        }
+        OperationOption = Console.ReadLine().Trim().ToUpper();
+        SelectOperationOption(OperationOption);
     }
     internal void DifficultyMenu()
     {
@@ -70,8 +74,60 @@ internal class AppMenu
                             Q - Exit
         ");
 
-        string option = Console.ReadLine().Trim().ToUpper();
-        SelectDifficultyOption(option);
+        DifficultyOption = Console.ReadLine().Trim().ToUpper();
+        SelectDifficultyOption(DifficultyOption);
+    }
+
+    internal void ValidateOptions()
+    {
+
+    }
+
+    internal bool IsGameOn ()
+    {
+        if(OperationOption == "Q" || DifficultyOption == "Q")
+            GameOn = false;
+        else GameOn = true;
+        return GameOn;
+    }
+
+    internal void ExitApp()
+    {
+        Console.WriteLine("You have chosen to exit the application");
+        Console.WriteLine("Good Bye!");
+        Console.ReadLine();
+    }
+
+    internal void SelectOperationOption(string option)
+    {
+        Console.Clear();
+        Console.WriteLine("--------------------------------------------");
+        
+        switch(option)
+        {
+            case "V": 
+                    mathOperations.gameHistory.ViewGameHistory();
+                    break;
+            case "A":
+                    mathOperations.DoMathOperation(Game.GameType.Addition, gameDifficulty, '+');
+                    break;
+            case "S":
+                    mathOperations.DoMathOperation(Game.GameType.Subtraction, gameDifficulty, '-');
+                    break;
+            case "M":
+                    mathOperations.DoMathOperation(Game.GameType.Multiplication, gameDifficulty, '*');
+                    break;
+            case "D":
+                    mathOperations.DoMathOperation(Game.GameType.Division, gameDifficulty, '/');
+                    break;
+            case "Q":
+                    ExitApp();                    
+                    break;
+            default:
+                    Console.WriteLine("Invalid option selected");
+                    Console.ReadLine();
+                    break;
+        }
     }
     internal void SelectDifficultyOption(string option)
     {
@@ -90,15 +146,12 @@ internal class AppMenu
                     gameDifficulty = Game.GameDifficulty.Hard;                    
                     break;
             case "Q":
-            Console.WriteLine("You have chosen to exit the application");
-            Console.WriteLine("Good Bye!");
-            Console.ReadLine();
-            IsGameOn = false;
-            break;
+                    ExitApp();                    
+                    break;
             default:
-            Console.WriteLine("Invalid option selected");
-            Console.ReadLine();
-            break;
+                    Console.WriteLine("Invalid option selected");
+                    Console.ReadLine();
+                    break;
         }
     }
 }

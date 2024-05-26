@@ -23,9 +23,12 @@ void AppStart(string name)
 }
 void PlayGame()
 {
-  do{
-  menu.GameMenu();
-  }while(AppMenu.IsGameOn);
+    menu.DifficultyApp();
+     if(!menu.IsGameOn())
+      {
+          return;
+      }
+    menu.OperationApp();
 }
 
 

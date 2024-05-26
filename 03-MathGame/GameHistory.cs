@@ -4,7 +4,7 @@ namespace MathGame;
 internal class GameHistory
 {
     internal static List<Game> gameHistory = new();
-    internal void AddToGameHistory(Game game)
+    internal void SaveGameHistory(Game game)
     {
         gameHistory.Add(game);
     }   
@@ -17,6 +17,7 @@ internal class GameHistory
         {
             Console.WriteLine(game.date.ToString("d") + " - " + game.gameType + " - " + game.gameDifficulty + " - " + game.score);
         }
+        Console.WriteLine("--------------------------------------------");
         Console.ReadLine();
     }
 }

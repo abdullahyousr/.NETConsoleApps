@@ -19,3 +19,18 @@
       4) Making class Math Operations with operands, operations and result attributes
 
       5) Making an option in the menu for the user to visualize a history of previous games.
+
+    => classes
+
+      1) main class
+
+      2) App Menu {choosing math operations and math difficulty}
+
+      3) Math Operations {making four basic operations}
+
+      4) Math difficulty {Making three difficulty operations}
+
+      5) Game History {Saving and showing game history}
+
+      6) Game {all game info}
+
