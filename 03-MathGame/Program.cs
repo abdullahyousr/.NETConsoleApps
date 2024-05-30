@@ -1,35 +1,68 @@
 ﻿
 using MathGame;
+using MathGame.Services;
 
-string name = GetName();
-var menu = new AppMenu();
+var appStart = new AppStart();
+appStart.SavingUserName();
+appStart.AppWelcome();
 
-AppStart(name);
-PlayGame();
+bool GameOn = true;
+var mathOperations = new MathOperations();
+var mathDifficulty = new MathDifficulty();
+var gameHistory = new GameHistory();
 
-string GetName()
+while(GameOn)
 {
-  Console.Write("Insert your name: ");
-  string name = Console.ReadLine();
-  Console.Clear();
-  return name;
-}
-void AppStart(string name)
-{
-  Console.WriteLine("--------------------------------------------");
-  Console.WriteLine($"Hello {name}! It's {DateTime.Now}");
-  Console.WriteLine($"Welcome to the Math Game Application");
-  Console.ReadLine();
-}
-void PlayGame()
-{
-    menu.DifficultyApp();
-     if(!menu.IsGameOn())
+  mathOperations.DisplayOperationMenu();
+  var userMathOption = Convert.ToChar(Console.ReadLine().Trim().ToUpper());
+  if(userMathOption == 'V')
+    gameHistory.ViewGameHistory();
+  else if(userMathOption == 'Q')
+  {
+    GameOn = false;
+    return;
+  }
+  else 
+  {
+    mathOperations.SetUserOperationOption(userMathOption);
+
+    mathDifficulty.DisplayDifficultyMenu();
+    var userDifficultyOption = Convert.ToChar(Console.ReadLine().Trim().ToUpper());
+    if(userDifficultyOption == 'Q')
       {
-          return;
+        GameOn = false;
+        return;
       }
-    menu.OperationApp();
+    else
+    {
+      mathDifficulty.SetUserDifficultyOption(userDifficultyOption);
+
+      mathDifficulty.SetDifficultyLevel();
+
+      for(int i=0; i<5; i++)
+      {
+        var randoms = mathDifficulty.ChooseDifficulty(userMathOption);
+        mathOperations.DoingMathOperation(randoms);
+      }
+
+      mathOperations.DisplayScore();
+      gameHistory.SaveGameHistory(mathOperations.score, DateTime.Now, mathOperations.GetGameType(), mathDifficulty.GetDifficultyLevel());
+    }
+  }
 }
+//var menu = new appmenu();
+//playgame();
+
+
+//void playgame()
+//{
+//    menu.difficultyapp();
+//    if (!menu.isgameon())
+//    {
+//        return;
+//    }
+//    menu.operationapp();
+//}
 
 
 

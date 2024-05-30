@@ -1,11 +1,18 @@
 using MathGame.Models;
 
-namespace MathGame;
+namespace MathGame.Services;
 internal class GameHistory
 {
     internal static List<Game> gameHistory = new();
-    internal void SaveGameHistory(Game game)
+    internal void SaveGameHistory(int scor, DateTime dateTime, GameType gameTyp, GameDifficulty gameDifficult)
     {
+        var game = new Game()
+        {
+            gameDifficulty = gameDifficult,
+            gameType = gameTyp,
+            date = dateTime,
+            score = scor
+        };
         gameHistory.Add(game);
     }   
     internal void ViewGameHistory()

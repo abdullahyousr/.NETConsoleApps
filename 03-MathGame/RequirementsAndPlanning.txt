@@ -24,13 +24,43 @@
 
       1) main class
 
-      2) App Menu {choosing math operations and math difficulty}
+      2) Math Operations {making four basic operations}
+           1 Display Math Operations Available to the user.
+           2 Taking the input chosen from the user and save
+             Validate UserInput
+           3 Making Random Operands
+           4 Calculating the chosen Operation with it's Operands (AppResult)
+           5 Taking UserAnswer
+             Validate UserInput
+           6 Comparing UserResult with AppResult.
+           7 Showing Message for both correct and Wrong Answers.
+           8 Repeat from 3 for 5 times and Record Score
 
-      3) Math Operations {making four basic operations}
+      3) Math difficulty {Making three difficulty operations}
 
-      4) Math difficulty {Making three difficulty operations}
-
-      5) Game History {Saving and showing game history}
+      4) Game History {Saving and showing game history}
 
       6) Game {all game info}
 
+
+    => App Console path
+       1) GET User Name                                                                             (Finished)
+       2) Welcome to the user with today's date                                                     (Finished)
+       3) Display Math Operations available to the user to choose                                   (Finished)
+       4) taking user choise (validate, save)
+          Game type                                                                                 (Finished)
+       5) Display Game Difficulty available to the user to choose                                   (Finished)
+       6) taking user choise (validate, save)
+          Game Difficulty                                                                           (Finished)
+       7) Doing MathOperation with it's Difficulty Level on random numbers                          (Finished)      
+       8) Taking the result of 7                                                                    (Finished)
+       9) Asking user the answer of operands and operation chosen                                   (Finished)
+       10) Taking the UserResult (validate, save)                                                    
+       11) Comparing UserResult with Result of 7                                                    (Finished)
+       12) If the answer is correct Show Success Message to user and increment score                (Finished)
+       13) if the answer is not correct Show Failed Message to user                                 (Finished)
+       14) Repeat from 7 for 5 times                                                                (Finished)
+       15) Show the Score to the user                                                               (Finished)
+       16) Save Game History                                                                        (Finished)
+       17) Show Game History                                                                        (Finished)
+       18) Exit App                                                                                 (Finished)
