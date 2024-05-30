@@ -50,19 +50,6 @@ while(GameOn)
     }
   }
 }
-//var menu = new appmenu();
-//playgame();
-
-
-//void playgame()
-//{
-//    menu.difficultyapp();
-//    if (!menu.isgameon())
-//    {
-//        return;
-//    }
-//    menu.operationapp();
-//}
 
 
 

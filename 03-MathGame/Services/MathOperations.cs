@@ -136,13 +136,6 @@ internal class MathOperations
         DisplayFailedMessage();
     }
   }
-  // internal void RepeatDoingMathNTimes(int n)
-  // {
-  //   for(int i=0; i<n; i++)
-  //   {
-  //     DoingMathOperation();
-  //   }
-  // }
   internal void DisplayScore()
   {
     //Console.Clear();
@@ -150,60 +143,7 @@ internal class MathOperations
     Console.WriteLine($"Game Over! your score is {score} / 5");
     Console.ReadLine();
   }
-  // internal void DoMathOperation(GameType gameType, GameDifficulty Difficulty, char operation)
-  // {
-  //     Console.WriteLine($"You have chosen {gameType}");
-  //     Console.ReadLine();
-  //     int score = 0;
-  //     for(int i = 0; i < 5; i++)
-  //     {
-  //       Console.Clear();
-  //       Console.WriteLine("--------------------------------------------");
-
-  //       // Difficulty type
-  //       (int minValue, int maxValue) difficultyRandom =  mathDifficulty.ChooseDifficulty(Difficulty, operation);
-        
-  //       // Random Numbers of Operands
-  //       RandomizeOperands(operation, difficultyRandom.minValue, difficultyRandom.maxValue);
-       
-  //       // UserResult and RealResult
-  //       int result = SelectMathOperation(operand_1, operand_2, operation);
-  //       Console.Write($"Enter the Result of {operand_1} {operation} {operand_2}: ");
-  //       var userResult = Console.ReadLine();
-        
-  //       //Validate UserInput
-  //       userResult = validateUserInput(userResult);
-
-  //     // Compare UserResult with Result
-  //       if(Convert.ToInt32(userResult) == result)
-  //       {
-  //         Console.WriteLine("Congratulations! You got the correct answer");
-  //         score++;
-  //         Console.ReadLine();
-  //       }
-  //       else
-  //       {
-  //         Console.WriteLine($"Sorry! The correct answer is {result}");
-  //         Console.ReadLine();
-  //       }
-  //     }
-  //     // Showing Score
-  //     Console.Clear();
-  //     Console.WriteLine("--------------------------------------------");
-  //     Console.WriteLine($"Game Over! your score is {score} / 5");
-  //     Console.ReadLine();
-  //     // saving Game
-  //     Game game = new() {gameType = gameType, gameDifficulty = Difficulty,  score = score };
-  //     gameHistory.SaveGameHistory(game);
-  // }
-  // internal int SelectMathOperation(int num1, int num2, char operation)
-  //     => operation switch
-  //     {
-  //         '+' => num1 + num2,
-  //         '-' => num1 - num2,
-  //         '*' => num1 * num2,
-  //         '/' => num1 / num2,
-  //     };
+  
   // internal string validateUserInput(string userResult)
   // {
   //       while(string.IsNullOrEmpty(userResult) || !int.TryParse(userResult, out _))
