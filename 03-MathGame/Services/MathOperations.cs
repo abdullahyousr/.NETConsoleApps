@@ -144,13 +144,13 @@ internal class MathOperations
     Console.ReadLine();
   }
   
-  // internal string validateUserInput(string userResult)
-  // {
-  //       while(string.IsNullOrEmpty(userResult) || !int.TryParse(userResult, out _))
-  //       {
-  //         Console.WriteLine("Please enter a valid number");
-  //         userResult = Console.ReadLine();
-  //       }
-  //       return userResult;
-  // }
+  internal string validateUserInput(string userResult)
+  {
+        while(string.IsNullOrEmpty(userResult) || !int.TryParse(userResult, out _))
+        {
+          Console.WriteLine("Please enter a valid number");
+          userResult = Console.ReadLine();
+        }
+        return userResult;
+  }
 }

@@ -1,6 +1,6 @@
-﻿
-using MathGame;
+﻿using MathGame;
 using MathGame.Services;
+
 
 var appStart = new AppStart();
 appStart.SavingUserName();
@@ -10,9 +10,11 @@ bool GameOn = true;
 var mathOperations = new MathOperations();
 var mathDifficulty = new MathDifficulty();
 var gameHistory = new GameHistory();
+var gameTimer = new GameTimer();
 
 while(GameOn)
 {
+  gameTimer.StartTimer();
   mathOperations.DisplayOperationMenu();
   var userMathOption = Convert.ToChar(Console.ReadLine().Trim().ToUpper());
   if(userMathOption == 'V')
@@ -20,7 +22,6 @@ while(GameOn)
   else if(userMathOption == 'Q')
   {
     GameOn = false;
-    return;
   }
   else 
   {
@@ -31,7 +32,6 @@ while(GameOn)
     if(userDifficultyOption == 'Q')
       {
         GameOn = false;
-        return;
       }
     else
     {
@@ -46,7 +46,8 @@ while(GameOn)
       }
 
       mathOperations.DisplayScore();
-      gameHistory.SaveGameHistory(mathOperations.score, DateTime.Now, mathOperations.GetGameType(), mathDifficulty.GetDifficultyLevel());
+      gameTimer.EndTimer();
+      gameHistory.SaveGameHistory(mathOperations.score, DateTime.Now, mathOperations.GetGameType(), mathDifficulty.GetDifficultyLevel(), gameTimer.GetTimeSpan());
     }
   }
 }
