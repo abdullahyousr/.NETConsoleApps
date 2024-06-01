@@ -39,7 +39,11 @@ while(GameOn)
 
       mathDifficulty.SetDifficultyLevel();
 
-      for(int i=0; i<5; i++)
+      Console.Write("Insert number of Questions to be asked: ");
+      var count = Convert.ToInt32(Console.ReadLine());
+      
+      mathOperations.SetNOfQuestions(count);
+      for(int i=0; i<count; i++)
       {
         var randoms = mathDifficulty.ChooseDifficulty(userMathOption);
         mathOperations.DoingMathOperation(randoms);

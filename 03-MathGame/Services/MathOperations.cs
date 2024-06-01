@@ -10,8 +10,17 @@ internal class MathOperations
   private int operand_2 { get; set; }
   private char _OperationOption;
   private char _OperationChar;
+  private int NOfQuestions;
+  internal void SetNOfQuestions(int count)
+  {
+      NOfQuestions = count;
+  }
+  internal int GetNOfQuestions()
+  {
+      return NOfQuestions;
+  }
   private GameType _GameType {get; set;}
-      internal GameType GetGameType()
+    internal GameType GetGameType()
     {
       return _GameType;
     }
@@ -140,8 +149,9 @@ internal class MathOperations
   {
     //Console.Clear();
     Console.WriteLine("--------------------------------------------");
-    Console.WriteLine($"Game Over! your score is {score} / 5");
+    Console.WriteLine($"Game Over! your score is {score} / {NOfQuestions}");
     Console.ReadLine();
+    score = 0;
   }
   
   internal string validateUserInput(string userResult)
