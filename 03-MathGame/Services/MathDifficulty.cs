@@ -54,9 +54,18 @@ internal class MathDifficulty
         else{MakeHard(operation);}
         return (minValue, maxValue);
     }
-    internal void MakeEasy(char operation)
+    internal (int,int) ChooseDifficulty(int operation)
     {
-        if(operation == 'D')
+        if(_DifficultyLevel.Equals(GameDifficulty.Easy))
+          MakeEasy(operation);
+        else if(_DifficultyLevel.Equals(GameDifficulty.Medium))
+          MakeMedium(operation);
+        else{MakeHard(operation);}
+        return (minValue, maxValue);
+    }
+    internal void MakeEasy(int operation)
+    {
+        if(operation == 4)
         {
             minValue = 1;
             maxValue = 99;
@@ -67,9 +76,9 @@ internal class MathDifficulty
           maxValue = 9;
         }
     }
-    internal void MakeMedium(char operation)
+    internal void MakeMedium(int operation)
     {
-        if(operation == 'D')
+        if(operation == 4)
         {
             minValue = 100;
             maxValue = 999;
@@ -80,9 +89,9 @@ internal class MathDifficulty
           maxValue = 99;
         }
     }
-    internal void MakeHard(char operation)
+    internal void MakeHard(int operation)
     {
-        if(operation == 'D')
+        if(operation == 4)
         {
             minValue = 1000;
             maxValue = 9999;

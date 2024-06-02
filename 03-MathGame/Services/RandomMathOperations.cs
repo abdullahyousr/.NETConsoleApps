@@ -8,7 +8,6 @@ internal class RandomMathOperations
   internal int score {get; set;}
   private int operand_1 { get; set; }
   private int operand_2 { get; set; }
-  private char _OperationOption;
   private int _RandomOperationOption;
   private char _OperationChar;
   private int NOfQuestions;
@@ -27,29 +26,22 @@ internal class RandomMathOperations
     }
     internal void SetRandomGameType()
     {
-        switch(_RandomOperationOption)
-        {
-            case '1':
-                    _GameType = GameType.Addition;
-                    break;
-            case '2':
-                    _GameType = GameType.Subtraction;                    
-                    break;
-            case '3':
-                    _GameType = GameType.Division;                    
-                    break;
-            case '4':
-                    _GameType = GameType.Multiplication;
-                    break;
-        }
+      _GameType = _RandomOperationOption switch
+      {
+          1 => GameType.Addition,
+          2 => GameType.Subtraction,
+          3 => GameType.Multiplication,
+          4 => GameType.Division,
+      };
     }
   internal int GetRandomOperationOption()
   {
-    return _OperationChar;
+    return _RandomOperationOption;
   }
-  internal void SetRandomOperationOption(char operationOption)
+  internal void SetRandomOperationOption()
   {
-    _OperationChar = operationOption;
+      var random = new Random();
+      _RandomOperationOption = random.Next(1,4);
   }
   internal void DisplayOperationMenu()
   {
@@ -61,22 +53,11 @@ internal class RandomMathOperations
                           Q - Exit
       ");
   }
-  // private void RandomizeMathOperations()
-  // {
-  //    var random = new Random();
-  //    int operationNumber = random.Next(1,4);
-  //     appResult = operationNumber switch
-  //     {
-  //         '1' => operand_1 + operand_2,
-  //         '2' => operand_1 - operand_2,
-  //         '3' => operand_1 * operand_2,
-  //         '4' => operand_1 / operand_2,
-  //     };
-  // }
+
   private void RandomizeOperands(int operation, int minValue, int maxValue)
   {
         var random = new Random();
-        if(operation == '4')
+        if(operation == 4)
         {
             operand_1 = random.Next(minValue, maxValue);
             operand_2 = random.Next(minValue, maxValue);

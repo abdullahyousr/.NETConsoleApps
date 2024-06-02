@@ -64,3 +64,27 @@
        16) Save Game History                                                                        (Finished)
        17) Show Game History                                                                        (Finished)
        18) Exit App                                                                                 (Finished)
+
+
+   => Random App Console path
+       1) GET User Name                                                                             (Finished)
+       2) Welcome to the user with today's date                                                     (Finished)
+       3) Display 3 Options available to the user to choose                                         (Finished)
+       4) taking user choise (validate, save)
+                                                                                                    (Finished)
+       5) Display Game Difficulty available to the user to choose                                   (Finished)
+       6) taking user choise (validate, save)
+          Game Difficulty 
+       7) Randomise Math Operations                                                                             (Finished)
+       8) Doing MathOperation with it's Difficulty Level on random numbers                          (Finished)      
+       9) Taking the result of 7                                                                    (Finished)
+       10) Asking user the answer of operands and operation chosen                                   (Finished)
+       11) Taking the UserResult (validate, save)                                                    
+       12) Comparing UserResult with Result of 7                                                    (Finished)
+       13) If the answer is correct Show Success Message to user and increment score                (Finished)
+       14) if the answer is not correct Show Failed Message to user                                 (Finished)
+       15) Repeat from 7 for n times                                                                (Finished)
+       15) Show the Score to the user                                                               (Finished)
+       16) Save Game History                                                                        (Finished)
+       17) Show Game History                                                                        (Finished)
+       18) Exit App                                                                                 (Finished)

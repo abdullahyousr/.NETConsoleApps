@@ -7,8 +7,8 @@ appStart.SavingUserName();
 appStart.AppWelcome();
 
 bool GameOn = true;
-var mathOperations = new MathOperations();
-// var randomMathOperations = new RandomMathOperations();
+// var mathOperations = new MathOperations();
+var randomMathOperations = new RandomMathOperations();
 var mathDifficulty = new MathDifficulty();
 var gameHistory = new GameHistory();
 var gameTimer = new GameTimer();
@@ -16,7 +16,8 @@ var gameTimer = new GameTimer();
 while(GameOn)
 {
   gameTimer.StartTimer();
-  mathOperations.DisplayOperationMenu();
+  // mathOperations.DisplayOperationMenu();
+  randomMathOperations.DisplayOperationMenu();
   var userMathOption = Convert.ToChar(Console.ReadLine().Trim().ToUpper());
   if(userMathOption == 'V')
     gameHistory.ViewGameHistory();
@@ -26,8 +27,7 @@ while(GameOn)
   }
   else 
   {
-    mathOperations.SetUserOperationOption(userMathOption);
-
+    // mathOperations.SetUserOperationOption(userMathOption);
     mathDifficulty.DisplayDifficultyMenu();
     var userDifficultyOption = Convert.ToChar(Console.ReadLine().Trim().ToUpper());
     if(userDifficultyOption == 'Q')
@@ -43,16 +43,23 @@ while(GameOn)
       Console.Write("Insert number of Questions to be asked: ");
       var count = Convert.ToInt32(Console.ReadLine());
       
-      mathOperations.SetNOfQuestions(count);
+      // mathOperations.SetNOfQuestions(count);
+      randomMathOperations.SetNOfQuestions(count);
       for(int i=0; i<count; i++)
       {
-        var randoms = mathDifficulty.ChooseDifficulty(userMathOption);
-        mathOperations.DoingMathOperation(randoms);
+        randomMathOperations.SetRandomOperationOption();
+        var randoms = mathDifficulty.ChooseDifficulty(randomMathOperations.GetRandomOperationOption());
+        // var randoms = mathDifficulty.ChooseDifficulty(userMathOption);
+        randomMathOperations.SetRandomGameType();
+        // mathOperations.DoingMathOperation(randoms);
+        randomMathOperations.DoingMathOperation(randoms);
       }
 
       gameTimer.EndTimer();
-      gameHistory.SaveGameHistory(mathOperations.score, DateTime.Now, mathOperations.GetGameType(), mathDifficulty.GetDifficultyLevel(), gameTimer.GetTimeSpan());
-      mathOperations.DisplayScore();
+      // gameHistory.SaveGameHistory(mathOperations.score, DateTime.Now, mathOperations.GetGameType(), mathDifficulty.GetDifficultyLevel(), gameTimer.GetTimeSpan());
+      gameHistory.SaveGameHistory(randomMathOperations.score, DateTime.Now, randomMathOperations.GetGameType(), mathDifficulty.GetDifficultyLevel(), gameTimer.GetTimeSpan());
+      // mathOperations.DisplayScore();
+      randomMathOperations.DisplayScore();
     }
   }
 }
