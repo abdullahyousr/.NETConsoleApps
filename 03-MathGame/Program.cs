@@ -8,6 +8,7 @@ appStart.AppWelcome();
 
 bool GameOn = true;
 var mathOperations = new MathOperations();
+// var randomMathOperations = new RandomMathOperations();
 var mathDifficulty = new MathDifficulty();
 var gameHistory = new GameHistory();
 var gameTimer = new GameTimer();
@@ -49,9 +50,9 @@ while(GameOn)
         mathOperations.DoingMathOperation(randoms);
       }
 
-      mathOperations.DisplayScore();
       gameTimer.EndTimer();
       gameHistory.SaveGameHistory(mathOperations.score, DateTime.Now, mathOperations.GetGameType(), mathDifficulty.GetDifficultyLevel(), gameTimer.GetTimeSpan());
+      mathOperations.DisplayScore();
     }
   }
 }

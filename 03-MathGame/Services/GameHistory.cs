@@ -21,7 +21,8 @@ internal class GameHistory
         Console.Clear();
         Console.WriteLine("--------------------------------------------");
         Console.WriteLine("Game History");
-        foreach(var game in gameHistory)
+        Console.WriteLine( "Date" + " - " + "Game Type" + " - " + "Game Difficulty" + " - " + "Score" + " - " + "Timer");
+        foreach (var game in gameHistory)
         {
             Console.WriteLine(game.date.ToString("d") + " - " + game.gameType + " - " + game.gameDifficulty + " - " + game.score + " - " + game.gameTimer);
         }

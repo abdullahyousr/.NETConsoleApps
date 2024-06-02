@@ -63,6 +63,18 @@ internal class MathOperations
                           Q - Exit
       ");
   }
+  // private void RandomizeMathOperations()
+  // {
+  //    var random = new Random();
+  //    int operationNumber = random.Next(1,4);
+  //     appResult = operationNumber switch
+  //     {
+  //         '1' => operand_1 + operand_2,
+  //         '2' => operand_1 - operand_2,
+  //         '3' => operand_1 * operand_2,
+  //         '4' => operand_1 / operand_2,
+  //     };
+  // }
   private void RandomizeOperands(char operation, int minValue, int maxValue)
   {
         var random = new Random();
@@ -132,6 +144,7 @@ internal class MathOperations
   }
   internal void DoingMathOperation((int minValue, int maxValue) randomNums)
   {
+    SetGameType();
     RandomizeOperands(_OperationOption, randomNums.minValue, randomNums.maxValue);
     CalculateAppResult();
     ReadUserAnswer();
