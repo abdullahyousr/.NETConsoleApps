@@ -19,20 +19,21 @@ internal class RandomMathOperations
   {
       return NOfQuestions;
   }
-  private GameType _GameType {get; set;}
-    internal GameType GetGameType()
+  internal List<GameType> _GameType {get; set;}
+    internal List<GameType> GetGameType()
     {
       return _GameType;
     }
     internal void SetRandomGameType()
     {
-      _GameType = _RandomOperationOption switch
+      GameType gameType = _RandomOperationOption switch
       {
           1 => GameType.Addition,
           2 => GameType.Subtraction,
           3 => GameType.Multiplication,
           4 => GameType.Division,
       };
+      _GameType.Add(gameType);
     }
   internal int GetRandomOperationOption()
   {

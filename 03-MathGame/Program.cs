@@ -20,7 +20,8 @@ while(GameOn)
   randomMathOperations.DisplayOperationMenu();
   var userMathOption = Convert.ToChar(Console.ReadLine().Trim().ToUpper());
   if(userMathOption == 'V')
-    gameHistory.ViewGameHistory();
+    gameHistory.ViewRandomGameHistory();
+    // gameHistory.ViewGameHistory();
   else if(userMathOption == 'Q')
   {
     GameOn = false;
@@ -45,6 +46,7 @@ while(GameOn)
       
       // mathOperations.SetNOfQuestions(count);
       randomMathOperations.SetNOfQuestions(count);
+      randomMathOperations._GameType = new();
       for(int i=0; i<count; i++)
       {
         randomMathOperations.SetRandomOperationOption();
