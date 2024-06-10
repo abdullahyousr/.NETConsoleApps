@@ -3,7 +3,7 @@ namespace MathGame.Services;
 
 internal class MathOperations
 {
-  private int userResult {get; set;}
+  private int _userResult {get; set;}
   private int appResult {get; set;}
   internal int score {get; set;}
   private int operand_1 { get; set; }
@@ -63,18 +63,6 @@ internal class MathOperations
                           Q - Exit
       ");
   }
-  // private void RandomizeMathOperations()
-  // {
-  //    var random = new Random();
-  //    int operationNumber = random.Next(1,4);
-  //     appResult = operationNumber switch
-  //     {
-  //         '1' => operand_1 + operand_2,
-  //         '2' => operand_1 - operand_2,
-  //         '3' => operand_1 * operand_2,
-  //         '4' => operand_1 / operand_2,
-  //     };
-  // }
   private void RandomizeOperands(char operation, int minValue, int maxValue)
   {
         var random = new Random();
@@ -114,12 +102,19 @@ internal class MathOperations
   private void ReadUserAnswer()
   {
         Console.Write($"Enter the Result of {operand_1} {ConvertOperationOptionToChar()} {operand_2}: ");
-        userResult = Convert.ToInt32(Console.ReadLine().Trim());
+        var userResult = Console.ReadLine().Trim();
+        int cleanResult = 0;
+        while (!int.TryParse(userResult, out cleanResult))
+        {
+            Console.Write("This is not valid input. Please enter a numeric value: ");
+            userResult = Console.ReadLine().Trim();
+        }
+        _userResult = cleanResult;
   }
 
   private bool CompareUserAnswerWithAppResult()
   {
-      if(Convert.ToInt32(userResult) == appResult)
+      if(Convert.ToInt32(_userResult) == appResult)
       {
         return true;
       }

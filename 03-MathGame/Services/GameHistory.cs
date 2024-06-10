@@ -3,7 +3,11 @@ using MathGame.Models;
 namespace MathGame.Services;
 internal class GameHistory
 {
-    internal static List<Game> gameHistory = new();
+    internal static List<Game> gameHistory;
+    internal GameHistory()
+    {
+        gameHistory = new();
+    }
     internal void SaveGameHistory(int scor, DateTime dateTime, List<GameType> gameTyp, GameDifficulty gameDifficult, TimeSpan gameTim)
     {
         var game = new Game()

@@ -10,10 +10,9 @@ namespace MathGame
     {
         internal static string userName { get; set; }
 
-        internal void SavingUserName()
+        internal void SavingUserName(string name)
         {
-            Console.Write("Insert your name: ");
-            userName = Console.ReadLine();
+            userName = name;
         }
         
         internal void AppWelcome()
