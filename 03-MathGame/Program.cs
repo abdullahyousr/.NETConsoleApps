@@ -5,8 +5,14 @@ using MathGame.Services;
 
 var appStart = new AppStart();
 
-Console.Write("Insert your name: ");
-string name = Console.ReadLine();
+string name;
+do
+{
+    Console.Write("Insert your name: ");
+    name = Console.ReadLine().Trim();
+}
+while(Regex.IsMatch(name, @"\d") || string.IsNullOrWhiteSpace(name));
+
 appStart.SavingUserName(name);
 appStart.AppWelcome();
 
